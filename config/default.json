@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://user:user@mernstack-ihfsi.mongodb.net/test?retryWrites=true"
+}
