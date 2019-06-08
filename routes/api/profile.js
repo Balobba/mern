@@ -1,11 +1,32 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../../middleware/auth');
+const Profile = require('../../models/Profile');
+const User = require('../../models/User');
 
-// @route   GET api/profile
-// @desc    Test route
-// @accress Public
-router.get('/', (req, res) => {
-  res.send('Profile route');
+// @route   GET api/profile/me
+// @desc    Get current users profile
+// @accress Private
+
+// Notes: Uses auth middleware. Uses async when mongoose is involved
+router.get('/me', auth, async (req, res) => {
+  try {
+    const profile = await Profile.findOne({ user: req.user.id }).populate(
+      'user',
+      ['name', 'avatar']
+    );
+
+    if (!profile) {
+      return res.status(400).json({
+        msg: 'There is no profile for this user'
+      });
+    }
+
+    res.json(profile);
+  } catch (err) {
+    console.err(err.message);
+    res.status(500).send('Server error');
+  }
 });
 
 module.exports = router;
