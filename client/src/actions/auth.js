@@ -98,12 +98,6 @@ export const login = (email, password) => async dispatch => {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')));
     }
 
-    // Currently a bug with axios? Axios returns an array that is called 'erros' instead of 'errors. Remove later?
-    const erros = err.response.data.erros;
-    if (erros) {
-      erros.forEach(error => dispatch(setAlert(error.msg, 'danger')));
-    }
-
     dispatch({
       type: LOGIN_FAIL
     });
