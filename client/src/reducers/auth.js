@@ -5,7 +5,8 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  LOGOUT
+  LOGOUT,
+  ACCOUNT_DELETED
 } from '../actions/types';
 
 // Initial state of authentication
@@ -43,6 +44,7 @@ export default function(state = initialState, action) {
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
+    case ACCOUNT_DELETED:
       // Clears auth state and token
 
       localStorage.removeItem('token');
