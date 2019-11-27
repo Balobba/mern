@@ -8,7 +8,7 @@ import ProfileItem from "./ProfileItem";
 const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
   useEffect(() => {
     getProfiles();
-  }, []);
+  }, [getProfiles]);
 
   return (
     <Fragment>
@@ -38,7 +38,7 @@ const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
 
 Profiles.propTypes = {
   getProfiles: PropTypes.func.isRequired,
-  profile: PropTypes.func.isRequired
+  profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

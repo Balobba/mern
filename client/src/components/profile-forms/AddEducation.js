@@ -1,18 +1,18 @@
-import React, { useState, Fragment } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { addEducation } from '../../actions/profile';
+import React, { useState, Fragment } from "react";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { addEducation } from "../../actions/profile";
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
-    school: '',
-    degree: '',
-    fieldofstudy: '',
-    from: '',
-    to: '',
+    school: "",
+    degree: "",
+    fieldofstudy: "",
+    from: "",
+    to: "",
     current: false,
-    description: ''
+    description: ""
   });
 
   const [toDateDisabled, toggleDisabled] = useState(false);
@@ -95,7 +95,7 @@ const AddEducation = ({ addEducation, history }) => {
                 setFormData({ ...formData, current: !current });
                 toggleDisabled(!toDateDisabled);
               }}
-            />{' '}
+            />{" "}
             Current School
           </p>
         </div>
@@ -106,7 +106,7 @@ const AddEducation = ({ addEducation, history }) => {
             name="to"
             value={to}
             onChange={e => onChange(e)}
-            disabled={toDateDisabled ? 'disabled' : ''}
+            disabled={toDateDisabled ? "disabled" : ""}
           />
         </div>
         <div className="form-group">
@@ -132,7 +132,4 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired
 };
 
-export default connect(
-  null,
-  { addEducation }
-)(AddEducation);
+export default connect(null, { addEducation })(withRouter(AddEducation));
