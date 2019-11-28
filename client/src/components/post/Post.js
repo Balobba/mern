@@ -6,6 +6,7 @@ import PostItem from "../posts/PostItem";
 import { Link } from "react-router-dom";
 
 import { getPost } from "../../actions/post";
+import CommentForm from "./CommentForm";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
       See the other props of PostItem to get a clear understanding 
       of Redux actions and states as props to a component */}
       <PostItem post={post} showActions={false} />
+      <CommentForm postId={post._id} />
     </Fragment>
   );
 };
