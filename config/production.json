@@ -1,0 +1,6 @@
+{
+  "mongoURI": "mongodb+srv://user:user@mernstack-ihfsi.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "c3575dfdc4fa8c784ca9",
+  "githubSecret": "26342045c4470c27354732ada0591472720824b2"
+}
